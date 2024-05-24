@@ -2,6 +2,8 @@
 clc
 clear
 close all
+addpath condition_driven_mode_division/
+addpath utils/
 load('data.mat') % the data set should includes a normal and an abnormal data matrix
 data_train = normal;
 data_train_diff = diff(data_train);
@@ -16,7 +18,7 @@ qieruzhi = 20; %the samples with the value of indicate_varibale lower
                  %according to your needs. 
 confidence_level = 0.99; %confidence level of the control limits
 alpha = 1.5; %relaxing factor.Please change this parameters according to your needs. 
-model_directory_and_name = 'C:\Users\Desktop\model.mat';%the directory to
+model_directory_and_name = 'trained_model/model.mat';%the directory to
                        %save the model(including the name of the model)
                        %Please change this parameters according to your needs. 
 main_modeling(data_train,data_train_diff,qieruzhi,indicate_variable,confidence_level,alpha,model_directory_and_name)
